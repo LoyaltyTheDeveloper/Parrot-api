@@ -1,11 +1,11 @@
 const User = require("../Models/UserModel");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Comment = require("../Models/commentModel");
 require("dotenv").config();
 
-const createSecretToken = ({_id, userName, email}) => {     // email
-  return jwt.sign({_id, userName, email}, process.env.TOKEN_KEY, { //email
+const createSecretToken = ({_id, userName, email}) => {  
+  return jwt.sign({_id, userName, email}, process.env.TOKEN_KEY, { 
     expiresIn: '30d',
   });
 }
@@ -95,3 +95,48 @@ module.exports.Signin = async (req, res, next) => {
       console.error(error);
     }
   }
+
+  //   module.exports.getUserComments = async (req, res, next) => {
+//     try {
+//       const { id } = req.params;
+//       const comment = await Comment.findById({id});
+      
+//       res.status(200).json({ success: true, organization: comment.organization, review: comment.review });
+//       next();
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+
+
+//   module.exports.editComment = async (req, res, next) => {
+//     try {
+//       const { review } = req.body;
+//       if(!review ){
+//         return res.json({message:'You did not update this comment'})
+//       }
+//       const { id } = req.params;
+//       const updatedComment = await Comment.findByIdAndUpdate(id, req.body);
+      
+//       res.status(200).json({ message: "Comment updated successfully", success: true, review: updatedComment.review });
+//       next();
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+  
+
+//   module.exports.deleteComment = async (req, res, next) => {
+//     try {
+//       const { id } = req.params;
+//       const comment = await Comment.findByIdAndDelete(id);
+      
+//       if(!comment){
+//         return res.status(404).json({message: "An error occured"});
+//       }
+//       res.status(200).json({ message: "Comment deleted successfully"});
+//       next();
+//     } catch (error) {
+//       console.error(error);
+//     }
