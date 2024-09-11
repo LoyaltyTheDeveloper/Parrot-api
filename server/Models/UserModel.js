@@ -30,12 +30,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Your password is required"],
   },
-  // comments: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: 'Comment'
-  //   }
-  // ]
 });
 
 userSchema.pre("save", async function () {
