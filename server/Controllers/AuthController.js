@@ -38,13 +38,12 @@ module.exports.Signup = async (req, res, next) => {
     const token = createSecretToken(user._id)
     
     res.status(201).json({ message: "User signed up successfully", success: true, token });
-    next(); 
+    next();
   }
   catch (error) {
     console.error(error);
   }
 };
-
 
 module.exports.uploadComment = async (req, res, next) => {
   try{
