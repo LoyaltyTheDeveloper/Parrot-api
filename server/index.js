@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 
 app.use(
     cors({
-      origin: "https://parrot-vercel.vercel.app",
+      origin: ["https://parrot-vercel.vercel.app", "http://127.0.0.1:5173"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ['Content-Type', 'Authorization'],
       credentials: true,
